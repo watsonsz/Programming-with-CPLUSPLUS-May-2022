@@ -9,6 +9,16 @@ void printVector(vector<double> testVec) {
 	cout << endl;
 }
 
+void printNestedVector(vector<vector<double>>& nestedVector) {
+	for (int i = 0; i < nestedVector.size(); ++i) {
+		cout << "Vector Row Index: " << i << ": \n";
+		for (int j = 0; j < nestedVector[i].size(); ++j) {
+			cout << nestedVector[i].at(j) << " ";
+		}
+		cout << endl;
+	}
+}
+
 vector<double> rowSum(vector<vector<double>>& nestedVector) {
 	vector<double> currVec;
 	for (int i = 0; i < nestedVector.size(); ++i) {
@@ -22,7 +32,7 @@ vector<double> rowSum(vector<vector<double>>& nestedVector) {
 	return currVec;
 }
 
-//FIXME: PRINT NESTED VECTOR FUNCTION
+
 
 
 int main() {
@@ -33,7 +43,14 @@ int main() {
 		{16, 17, 18, 19, 20},
 		{21, 22, 23, 24, 25}
 			};
+
+	printNestedVector(nestedVector);
+
+	cout << "\nNew Vector Created.\n";
+
 	vector<double> newVec = rowSum(nestedVector);
 
+	cout << "New Vector: ";
 	printVector(newVec);
+
 }
