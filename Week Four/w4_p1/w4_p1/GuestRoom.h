@@ -8,7 +8,7 @@ class GuestRoom: public HotelRoom
 
 public:
 	GuestRoom();
-	GuestRoom(double dailyRate, int roomNumber, int capacity, int status, int days);
+	GuestRoom(int roomNumber, double dailyRate, int capacity, int status, int days);
 	void setCapacity(int capacity);
 	void setStatus(int status);
 	void setDays(int days);

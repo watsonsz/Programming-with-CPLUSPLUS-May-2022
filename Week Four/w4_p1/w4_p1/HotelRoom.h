@@ -14,6 +14,7 @@ public:
 	void setDaily(double dailyRate);
 	int getRoomNumber();
 	double getDailyRate();
-	std::string toString();
+	virtual double calculateBill() = 0;
+	virtual std::string toString() = 0;
 };
 

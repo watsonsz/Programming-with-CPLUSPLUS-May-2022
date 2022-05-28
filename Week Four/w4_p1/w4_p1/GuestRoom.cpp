@@ -1,15 +1,15 @@
 #include "GuestRoom.h"
-//#include <exception>
+
 using namespace std;
 GuestRoom::GuestRoom(): HotelRoom(){
+	cout << "GuestRoom initialized with no-arg constructor...\n";
 	capacity = 0;
 	days = 0;
 	status = 0;
 }
 
-GuestRoom::GuestRoom(double dailyRate, int roomNumber, int capacity, int status, int days): HotelRoom() {
-	setDaily(dailyRate);
-	setRoomNumber(roomNumber);
+GuestRoom::GuestRoom(int roomNumber, double dailyRate, int capacity, int status, int days): HotelRoom(roomNumber, dailyRate) {
+	cout << "GuestRoom initialized with constructor containing arguments...\n";
 	//exception handling
 	if (status > capacity) {
 		throw out_of_range("Maximum Capacity Exceeded");
@@ -68,8 +68,9 @@ std::string GuestRoom::toString() {
 	string totalString = to_string(calculateBill());
 	totalString.erase(6, 4);
 
-	startingString.append("Total: ");
+	startingString.append("Total: $");
 	startingString.append(totalString);
+	startingString.append("\n");
 
 	return startingString;
 
